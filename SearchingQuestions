@@ -98,3 +98,79 @@ class GFG {
 	  return -1;
 	}
 }
+
+
+//FINDING TARGET IN ROTATED SORTED ARRAY WITH DUPLICATES
+class Main {
+    public int search(int[] nums, int target) {
+        int p=pivot(nums);
+        int ans=-1;
+        System.out.print(p);
+        if(p==-1)
+            return bs(nums,target,0,nums.length-1);
+        if(nums[p]==target)
+            return p;
+        
+        if(target>=nums[0]){
+            ans=bs(nums,target,0,p-1);
+            return ans;
+            
+        }
+        ans=bs(nums,target,p+1,nums.length-1);
+        return ans;
+    
+        
+    }
+    int pivot(int []nums)
+    {
+        int start=0;
+        int end=nums.length-1;
+        while(start<end)
+        {
+            int mid=start+(end-start)/2;
+             if(mid<end && nums[mid]>nums[mid+1])
+                 return mid;
+         
+             if(mid>start && nums[mid]<nums[mid-1])
+                 return mid-1;
+            if(nums[mid]==nums[start] && nums[mid]==nums[end])
+            {
+                if(nums[start]>nums[start+1])
+                {
+                    return start;
+                }
+                start++;
+                if(nums[end]<nums[end-1]){
+                    return end-1;
+                }
+                end--;
+                if(nums[start]<nums[mid]||(nums[start]==nums[mid] && nums[mid]>nums[end])){
+                    start=mid+1;
+                } 
+                else{
+                    end=mid-1;
+                }
+                
+            }
+             
+        }
+        return -1;
+
+    }
+     int bs(int []nums,int target,int start,int end)
+    {
+    
+        while(start<=end)
+        {
+            int mid=start+(end-start)/2;
+            if(nums[mid]==target)
+                return mid;
+            else if(nums[mid]<target)
+                start=mid+1;
+            else
+                end=mid-1;
+             
+        }
+        return -1;
+    }
+}
