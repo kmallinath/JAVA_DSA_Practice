@@ -283,6 +283,216 @@ public class Main
                  System.out.print("*");
              }
     }
+    
+    static void pattern14(int n)
+    {
+        for(int i=1;i<=2*n-1;i++)
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+        for (int i=2;i<=n; i++) 
+        {
+            int spaces1=i-1;
+             for(int j=0;j<spaces1;j++)
+             {
+                 System.out.print(" ");
+             }
+             System.out.print("*");
+             int spaces2=2*n-2*i-1;
+             for(int j=0;j<spaces2;j++)
+             {
+                 System.out.print(" ");
+             }
+            if(i!=n)
+             System.out.print("*");
+
+           System.out.println();
+         }
+         
+    }
+
+    static void pattern15(int n)
+    {
+        
+        for(int i=1;i<=2*n-1;i++)
+        {
+            int spaces1=(i<=n)?n-i:i-n;
+            for(int j=0;j<spaces1;j++)
+            {
+                System.out.print(" ");
+            }
+            if(i==1 || i==2*n-1)
+            {
+                System.out.print("*");
+                System.out.println();
+            }
+            else
+            {
+                System.out.print("*");
+                int spaces2=(i<=n)?2*i-3:(2*n-1)-(((i-n)*2)+2);
+                for(int j=0;j<spaces2;j++)
+                {
+                System.out.print(" ");
+                }
+                System.out.print("*");
+
+                System.out.println();
+
+
+            }
+        }
+    }
+
+
+    static void pattern16(int n)
+    {
+        
+        for (int i=1;i<=2*n; i++) 
+        {
+            int spaces=(i<=n)?i-1:2*n-i;
+            
+             int colvalue=(i<=n)?n-i:i-n;
+             for(int j=0;j<=spaces;j++)
+             {
+                 System.out.print(" ");
+             }
+             for(int j=0;j<colvalue;j++)
+             {
+                 System.out.print(" *");
+             }
+            
+             System.out.println();
+
+         
+
+         }
+
+    }
+
+
+    static void pattern20(int n)
+    {
+        for(int i=1;i<=n;i++)
+        {
+            if(i==1 || i==n)
+            {
+                for(int j=1;j<=n;j++)
+                {
+                    System.out.print("*");
+                }
+            }
+            else
+            {
+                System.out.print("*");
+                for(int j=2;j<=n-1;j++)
+                {
+                    System.out.print(" ");
+                }
+                System.out.print("*");
+
+            }
+           System.out.println();
+
+        }
+    }
+
+
+    static void pattern21(int n)
+    {   int startvalue=1;
+        for(int i=1;i<=n;i++)
+        {
+            
+            for(int j=1;j<=i;j++)
+            {   System.out.print(startvalue+" ");
+                startvalue++;
+
+        
+            }
+            System.out.println();
+
+        }
+    }
+
+    static void pattern22(int n)
+    {   
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=0;j<i;j++)
+            {
+                if(i%2==1)
+                {
+                    if(j%2==1)
+                    {
+                        System.out.print(0+" ");
+                    }
+                    else
+                        System.out.print(1 +" ");
+                }
+                else
+                {
+                    if(j%2==1)
+                    {
+                        System.out.print(1 +" ");
+                    }
+                    else
+                        System.out.print(0 +" ");
+
+                }
+            }
+            System.out.println();
+        }
+    }
+    static void pattern28(int n)
+    {
+        for(int i=1;i<=2*n-1;i++)
+        {
+            int spaces=(i<=n)?(n-i):(i-n );
+            for(int j=1;j<=spaces;j++)
+            {
+                System.out.print(" ");
+            }
+            int stars=(i<=n)?(i):(2*n)-i;
+            for(int j=1;j<=stars;j++)
+            {
+                System.out.print("* ");
+            }
+            System.out.println();
+                             
+
+        }
+    }
+
+    static void pattern29(int n)
+    {
+        for(int i=1;i<=2*n-1;i++)
+        { 
+
+
+            int stars1=(i<=n)?(i):(2*n)-i;
+            for(int j=1;j<=stars1;j++)
+            {
+                System.out.print("*");
+            }
+    
+
+            int spaces=(i<=n)?2*n-2*i:2*n-((2*(2*n-i)));
+            for(int j=1;j<=spaces;j++)
+            {
+                System.out.print(" ");
+            }
+            int stars2=(i<=n)?(i):(2*n)-i;
+            for(int j=1;j<=stars2;j++)
+            {
+                System.out.print("*");
+            }
+            System.out.println();
+                             
+
+        }
+    }
+
+
 
 
 
