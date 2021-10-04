@@ -173,4 +173,142 @@ class Main {
         }
         return -1;
     }
+    
+    
 }
+
+
+
+=========================================================================================================================================================================
+// 2D ARRAY SEARCHING
+
+import java.util.*;
+
+class BinarySearch2D
+{
+
+public static void main(String[] args) 
+{
+    // THIS CODE OS FOR MATRIX SORTED COLUMN WISE AND ROW WISE
+    /*int[][]arr={
+        {1,2,4,10},
+        {5,6,8,17},
+        {9,7,13,22}
+    };
+    int target=6;
+    int[] ans=bs(arr,target);
+    System.out.print(Arrays.toString(ans));
+    */
+    
+    //THIS CODE IS FOR MATRIX SORTED 
+    int[][]arr1={
+        {1,2,3,9},
+        {10,16,18,27},
+        {30,37,43,52}
+    };
+    int target=30;
+    int [] ans=bs2(arr1,target);
+    System.out.print(Arrays.toString(ans));
+
+
+}
+
+static int[]  bs(int [][]arr,int target)
+{
+    int row=0;
+    int col=arr[0].length-1;
+    while(row<arr.length && col>=0)
+    {
+        if(target<arr[row][col])
+            col--;
+        else if(target>arr[row][col])
+            row++;
+        else
+            return new int[]{row,col};
+
+
+    }
+    return new int[]{-1,-1};
+    
+}
+
+static int[]  bs2(int [][]arr,int target)
+{
+    int startrow=0;
+    int col=arr[0].length-1;
+    int midcol=col/2;
+    int endrow=arr.length-1;
+    
+    while(endrow-startrow>1)
+    {
+        int midrow=startrow + (endrow-startrow)/2;
+        if(target==arr[midrow][midcol])
+            return new int[] {midrow,midcol};
+        else if(target>arr[midrow][col])
+            startrow=midrow;
+        else
+            endrow=midrow;
+
+
+    }
+    if(arr[startrow][midcol]==target)
+        return new int[] {startrow,midcol};
+    if(arr[endrow][midcol]==target)
+        return new int[] {endrow,midcol};
+    if(target<=arr[startrow][midcol-1])
+    {
+        return binarysearch(arr, target,0,midcol-1,startrow);
+
+
+    }
+    if(target>=arr[startrow][midcol+1] && target <arr[endrow][midcol+1])
+    {
+        return binarysearch(arr, target,midcol+1,col,startrow);
+
+
+    }
+    if(target<=arr[endrow][midcol-1])
+    {
+        return binarysearch(arr, target,0,midcol-1,endrow);
+
+
+    }
+    else
+    {
+        return binarysearch(arr, target,midcol+1,col,endrow);
+
+
+    }
+
+
+
+
+    
+
+
+    
+    
+    
+}
+
+static int[] binarysearch(int[][]arr,int target,int start,int end,int row)
+	{
+	  
+	    
+	    while(start<=end)
+	    {   int mid=start+(end-start)/2;
+	        if(arr[row][mid]==target)
+	            return new int[] {row,mid};
+	        else if (arr[row][mid]>target)
+	            end=mid-1;
+	        else
+	            start=mid+1;
+	    }
+	    return new int[]{-1,-1};
+	}
+
+
+
+}
+
+
