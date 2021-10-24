@@ -1,12 +1,10 @@
-//BUBBLE SORT
-
 import java.util.*;
-public class Main
-{
-
+class Main{
     public static void main(String[] args) {
-        int[]a={1,22,5,6,10,-1,-100};
-        bubblesort(a);
+       // int[]a={1,22,5,6,10,-10,100,-29};
+       int []a={5,4,3,2,1};
+        cyclicsort(a);
+        
         System.out.print(Arrays.toString(a));
         
     }
@@ -27,14 +25,71 @@ public class Main
                 }
             }
             if(swapped==false)
-            {   
                 break;
-        
+        }
+    }
+
+
+
+    static void selectionsort(int[] arr)
+    {
+        for(int i=0;i<arr.length-1;i++)
+        {
+            int index=i;
+            int minindex=index+1;
+            for(int j=index+1;j<arr.length-1;j++)
+            {
+                if(arr[j+1]<arr[minindex])
+                    minindex=j+1;
             }
-            
+            if(arr[minindex]<arr[index])
+            {
+               swap(arr, minindex, index);
+            }
+
+
+        }
+
+    }
+    static void  swap(int arr[],int minindex,int index)
+    {
+        int temp=arr[minindex];
+        arr[minindex]=arr[index];
+        arr[index]=temp;
+       
+    }
+
+
+    static void insertionsort(int[] arr)
+    {
+        for(int i=0;i<arr.length-1;i++)
+        {
+            int j=i+1;
+            while(j>0 && arr[j]<arr[j-1])
+            {
+                int temp=arr[j];
+                arr[j]=arr[j-1];
+                arr[j-1]=temp;
+                j-=1;
+            }
+        }
+    }
+
+
+
+    static void cyclicsort(int[] arr)
+    {
+        for(int i=0;i<arr.length;i++)
+        {
+            while(arr[i]!=i+1)
+            {
+                swap(arr, i, arr[i]-1);
+            }
+
+
         }
     }
 
     
-
 }
+
