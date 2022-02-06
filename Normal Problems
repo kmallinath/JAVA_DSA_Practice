@@ -1,0 +1,51 @@
+MY LEETCODE PROFILE:
+
+https://leetcode.com/chinnu3737/
+
+//PRINTING ALL SUBSETS
+
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    // write your code here
+    Scanner sc=new Scanner(System.in);
+    int n=sc.nextInt();
+    int [] a=new int[n];
+    for(int i=0;i<n;i++)
+    {
+        a[i]=sc.nextInt();
+
+    }
+    int total=(int)Math.pow(2,n);
+    for(int i=0;i<total;i++)
+    {
+        int temp=i;
+        String ans="";
+        for(int j=a.length-1;j>=0;j--)
+        {
+            int r=temp%2;
+            temp=temp/2;
+            if(r==0)
+            {
+                ans+="-\t";
+
+
+            }
+            else
+            {
+                ans+=a[j]+"\t";
+            }
+
+        }
+        System.out.println(ans);
+        
+        
+    }
+
+
+ }
+
+}
