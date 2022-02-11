@@ -49,3 +49,85 @@ public static void main(String[] args) throws Exception {
  }
 
 }
+ 
+ 
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
+ 
+ //PRINTING MATRIX IN SPIRAL FORM
+ 
+ 
+ import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        // write your code here
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        int [][]arr=new int[m][n];
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                arr[i][j]=sc.nextInt();
+            }
+        }
+        int l=0;
+        int t=0;
+        int r=n-1;
+        int b=m-1;
+
+        int dir=0;
+
+        while(t<=b && l<=r)
+        {
+            dir=dir%4;
+            if(dir==0)
+            {
+                for(int i=t;i<=b;i++)
+                {
+                    System.out.println(arr[i][l]);
+                    
+                }
+                l+=1;
+
+            
+            }
+            if(dir==1)
+            {
+                for(int i=l;i<=r;i++)
+                {
+                    System.out.println(arr[b][i]);
+                    
+                }
+                b-=1;
+    
+            }
+            if(dir==2)
+            {
+                for(int i=b;i>=t;i--)
+                {
+                    System.out.println(arr[i][r]);
+                    
+                }
+                r-=1;
+                
+            }
+            if(dir==3)
+            {
+                for(int i=r;i>=l;i--)
+                {
+                    System.out.println(arr[t][i]);
+                }
+                t+=1;
+                
+            }
+            dir+=1;
+        }
+
+
+    }
+
+}
